@@ -11,6 +11,7 @@ from playhouse.postgres_ext import (
     CharField,
     DoubleField,
     BooleanField,
+    IntegerField,
 )
 
 database = os.environ.get("POSTGRES_DB", "bootcamp")
@@ -37,7 +38,7 @@ class DatabaseProducts(BaseModel):
     price = DoubleField()
     is_on_sale = BooleanField(default=False)
     sale_price = DoubleField(null=True)
-
+   
     @classmethod
     def prepopulate(cls):  # pragma: nocover
         products = [
@@ -81,6 +82,25 @@ class DatabaseProducts(BaseModel):
             ),
         ]
         DatabaseProducts.bulk_create(products)
+
+class DatabaseCartItem(BaseModel):
+    id = AutoField(primary_key=True)
+    name = CharField()
+    price = DoubleField()
+    quantity = IntegerField(default=1)
+     
+
+    @classmethod
+    def prepopulate(cls):
+        CartItem = {
+            DatabaseCartItem(
+                id=1,
+                name="Cool Test Item",
+                price=4.99,
+                quantity=1,
+            ),
+        }
+        DatabaseCartItem.bulk_create(CartItem)
 
 
 # Excercise 1:
