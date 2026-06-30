@@ -51,4 +51,4 @@ docker volume ls
 # Stop the app, destroy its data, restart it and it will recreate the database for you
 docker compose down
 docker volume rm bootcampcart-api_postgresdb
-docker compose up --build --force-recreate api
+docker compose up --build --force-recreate api -d

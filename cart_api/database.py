@@ -38,7 +38,7 @@ class DatabaseProducts(BaseModel):
     price = DoubleField()
     is_on_sale = BooleanField(default=False)
     sale_price = DoubleField(null=True)
-   
+
     @classmethod
     def prepopulate(cls):  # pragma: nocover
         products = [
@@ -83,30 +83,16 @@ class DatabaseProducts(BaseModel):
         ]
         DatabaseProducts.bulk_create(products)
 
-class DatabaseCartItem(BaseModel):
-    id = AutoField(primary_key=True)
-    name = CharField()
-    price = DoubleField()
-    quantity = IntegerField(default=1)
-     
-
-    @classmethod
-    def prepopulate(cls):
-        CartItem = {
-            DatabaseCartItem(
-                id=1,
-                name="Cool Test Item",
-                price=4.99,
-                quantity=1,
-            ),
-        }
-        DatabaseCartItem.bulk_create(CartItem)
-
 
 # Excercise 1:
 # Define an ORM class called DatabaseCartItem which inherits from BaseModel
 # and has the properties and types defined by your swagger spec.
 # if neccesary, update EXAMPLE_CART_ITEM in cart_api_tests/test_exercises.py to match
+class DatabaseCartItem(BaseModel):
+    id = AutoField(primary_key=True)
+    name = CharField()
+    price = DoubleField()
+    quantity = IntegerField()
 
 
 # BOOTCAMPERS: Don't modify anything below
