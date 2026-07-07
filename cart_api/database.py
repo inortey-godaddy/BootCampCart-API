@@ -49,6 +49,7 @@ class DatabaseProducts(BaseModel):
                 price=14.99,
                 is_on_sale=False,
                 sale_price=8.99,
+                
             ),
             DatabaseProducts(
                 id=2,
@@ -57,6 +58,7 @@ class DatabaseProducts(BaseModel):
                 price=29.99,
                 is_on_sale=True,
                 sale_price=19.99,
+            
             ),
             DatabaseProducts(
                 id=3,
@@ -64,6 +66,7 @@ class DatabaseProducts(BaseModel):
                 description="Purchase a .com domain",
                 price=9.99,
                 is_on_sale=False,
+                sale_price=4.99,
             ),
             DatabaseProducts(
                 id=4,
